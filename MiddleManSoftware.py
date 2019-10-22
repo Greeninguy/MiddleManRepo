@@ -8,10 +8,13 @@ while True:
     answer = input()
     if answer == "l" or answer == "L":
         import LEDController
+        LEDController.LEDMenu()
     elif answer == "m" or answer == "M":
         import LockController
+        LockController.lockMenu()
     elif answer == "h" or answer == "H:":
         import sensorController
+        sensorController.sensorMenu()
     elif answer == "e" or answer == "E":
         GPIO.cleanup()
         print("Exiting program...")

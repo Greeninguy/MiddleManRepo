@@ -4,19 +4,24 @@ Type "help", "copyright", "credits" or "license()" for more information.
 >>> #Libraries
 import RPi.GPIO as GPIO
 import time
- 
+
+height = 0
+
 #GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.Board)
  
 #set GPIO Pins
 GPIO_TRIGGER = 12
 GPIO_ECHO = 18
- 
-#set GPIO direction (IN / OUT)
-GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
-GPIO.setup(GPIO_ECHO, GPIO.IN)
+
+def sensorSetup():
+    #set GPIO direction (IN / OUT)
+    GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+    GPIO.setup(GPIO_ECHO, GPIO.IN)
  
 def distance():
+    sensorSetup()
+    
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
  
@@ -45,7 +50,7 @@ def distance():
     
 #Manually set trigger distance for sensor
 def setTrigger():
-	print ("Set Distance? \n")
+	print ("Enter Distance (cm) \n")
 	trigger = input()
 	proper = trigger.isdigit()
 	while proper == false:
@@ -71,19 +76,39 @@ def setTrigger2():
 def distanceTest():
     return 35
     
-#Main will be changed when it is known of how program must run	
-if __name__ == '__main__':
+def sensorMenu():
+    while True:
+        print("Which Operation? \n"
+              "Set Height (Manual Input): I \n"
+              "Set Height (Sensor Input): S \n"
+              "Activate Sensor: A
+              "Exit: E \n")
+        answer = input()
+        if answer == "i" or answer == "I":
+            height = setTrigger()
+        elif answer == "s" or answer == "S":
+            height = setTrigger2()
+        elif answer == "a" or answer == "A":
+            detect(height)
+        elif answer == "e" or answer == "E":
+            print("Exiting program...")
+            exit()
+        else:
+            print("Invalid input")
+
+def detect(height):
     try:
         while True:
-            dist = distanceTest()  
+            thresh = height
+            dist = distance()
             if dist < thresh + 5:
-                detect = true
                 print ("Height Threshold Detected: Unlocking Gate")
-                #send signal to unlock gate
+                import LockController
+                LockController.lockAfterUnlock()
             print ("Measured Distance = %.1f cm" % dist)
             time.sleep(3)
- 
-        # Reset by pressing CTRL + C
+
+    #Reset by pressing CTRL + C
     except KeyboardInterrupt:
         print("Measurement stopped by User")
-        GPIO.cleanup()
+        exit()
