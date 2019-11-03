@@ -1,4 +1,4 @@
-import automation
+
 import datetime
 from datetime import datetime
 import RPi.GPIO as GPIO
