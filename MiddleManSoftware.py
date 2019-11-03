@@ -1,3 +1,62 @@
+import automation
+import datetime
+from datetime import datetime
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+
+LEDOnDay[]
+LEDOnHour[]
+LEDOnMinute[]
+
+LEDOffDay[]
+LEDOffHour[]
+LEDOffMinute[]
+
+lockDay[]
+lockHour[]
+lockMinute[]
+
+unlockDay[]
+unlockHour[]
+unlockMinute[]
+
+def LEDOnDayAdd(i):
+    LEDDay.append(i)
+
+def LEDOnHourAdd(i):
+    LEDHour.append(i)
+
+def LEDOnMinuteAdd(i):
+    LEDMinute.append(i)
+
+def LEDOffDayAdd(i):
+    LEDDay.append(i)
+
+def LEDOffHourAdd(i):
+    LEDHour.append(i)
+
+def LEDOffMinuteAdd(i):
+    LEDMinute.append(i)
+
+def LockDayAdd(i):
+    lockDay.append(i)
+
+def LockHourAdd(i):
+    lockHour.append(i)
+
+def LockinuteAdd(i):
+    lockMinute.append(i)
+
+def UnlockDayAdd(i):
+    unlockDay.append(i)
+
+def UnlockHourAdd(i):
+    unlockHour.append(i)
+
+def UnlockinuteAdd(i):
+    unlockMinute.append(i)
 
 while True:
     print("Which Feature? \n"
