@@ -2,6 +2,7 @@ def autoMenu():
     while True:
         print("Which Operation? \n"
               "Calc Avgerage: A \n"
+              "Set Average: S \n"
               "Clear File: C \n"
               "Exit: E \n")
         answer = input()
@@ -12,7 +13,7 @@ def autoMenu():
                       "Turn LED Off: F \n"
                       "Lock Gate: L \n"
                       "Unlock Gate: U \n"
-                      "Exit/Go Back: E \n"
+                      "Exit/Go Back: E \n")
                 answer = input()
                 if answer == 'o' or answer == 'O':
                     return calcLEDOn()
@@ -26,6 +27,35 @@ def autoMenu():
                     break
                 else:
                     print("Invalid input")
+        elif answer == 's' or answer == 'S':
+            print("Which Operation? \n"
+                  "Turn LED On: O \n"
+                  "Turn LED Off: F \n"
+                  "Lock Gate: L \n"
+                  "Unlock Gate: U \n")
+            answer = input()
+            if answer == 'o' or answer == 'O':
+                file = "LEDONAuto.txt"
+            elif answer == 'f' or answer == 'F':
+                file = "LEDOffAuto.txt"
+            elif answer == 'l' or answer == 'L':
+                file = "LockAuto.txt"
+            elif answer == 'u' or answer == 'U':
+                file = "UnlockAuto.txt"
+            f = open(file, 'w')
+            print("What Day? (0-6) \n")
+            answer = input()
+            f.write(str(answer))
+            f.write('\n')
+            print("Which Hour? (0-23) \n")
+            answer = input()
+            f.write(str(answer))
+            f.write('\n')
+            print("Which Minute? (0-59) \n")
+            answer = input()
+            f.write(str(answer))
+            f.write('\n')
+            f.close()
         elif answer == "c" or answer == "C":
             print("Which File?")
             answer = input()

@@ -1,5 +1,7 @@
 def setup():   
     import RPi.GPIO as GPIO
+    import datetime
+    from datetime import datetime
 
     GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
@@ -14,7 +16,7 @@ def turnOn():
     d = datetime.today()
     t = d.timetuple()
     f = open("ledonday.txt", 'a')
-    f.write(str(t[2]))
+    f.write(str(d.weekday()))
     f.write('\n')
     f.close()
     f = open("ledonhour.txt", 'a')
@@ -33,7 +35,7 @@ def turnOff():
     d = datetime.today()
     t = d.timetuple()
     f = open("ledoffday.txt", 'a')
-    f.write(str(t[2]))
+    f.write(str(d.weekday()))
     f.write('\n')
     f.close()
     f = open("ledoffhour.txt", 'a')
