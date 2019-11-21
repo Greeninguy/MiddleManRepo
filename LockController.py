@@ -56,12 +56,12 @@ def lockAfterUnlock():
     time.sleep(5)
     GPIO.output(ledPin, GPIO.HIGH)
 
-def lockMenu:
+def lockMenu():
     while True:
         print("Which Operation? \n"
               "Lock: L \n"
               "Unlock: U \n"
-              "Unlock and Relock: P
+              "Unlock and Relock: P \n"
               "Exit: E \n")
         answer = input()
         if answer == "l" or answer == "L":

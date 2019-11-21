@@ -10,16 +10,16 @@ def automate():
     try:
         while True:
             time = timeCheck()
-            match = readAuto("LEDOnAuto.txt")
+            match = readAuto("LEDOnAuto.txt", time)
             if match:
                 LEDController.turnOn()
-            match = readAuto("LEDOffAuto.txt")
+            match = readAuto("LEDOffAuto.txt", time)
             if match:
                 LEDController.turnOff()
-            match = readAuto("LockAuto.txt")
+            match = readAuto("LockAuto.txt", time)
             if match:
                 LockController.lock()
-            match = readAuto("UnlockAuto.txt")
+            match = readAuto("UnlockAuto.txt", time)
             if match:
                 LockController.unlock()
             time.sleep(60)
