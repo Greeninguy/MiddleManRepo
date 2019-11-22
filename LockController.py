@@ -10,10 +10,15 @@ def setup():
     GPIO.setup(ledPin, GPIO.OUT)
 
 def lock():
-    setup()
+    import RPi.GPIO as GPIO
+    GPIO.setmode(GPIO.Board)
+    GIOP.setwarnings(False)
+    ledPin = 11
+    GPIO.setup(ledPin, GPIO.OUT)
     import time
     import datetime
     from datetime import datetime
+    
     print("Locking Gate.")
     d = datetime.today()
     t = d.timetuple()
@@ -32,10 +37,15 @@ def lock():
     GPIO.output(ledPin, GPIO.HIGH)
 
 def unlock():
-    setup()
+import RPi.GPIO as GPIO
+    GPIO.setmode(GPIO.Board)
+    GIOP.setwarnings(False)
+    ledPin = 11
+    GPIO.setup(ledPin, GPIO.OUT)
     import time
     import datetime
     from datetime import datetime
+    
     print("Unlocking Gate.")
     d = datetime.today()
     t = d.timetuple()
@@ -54,7 +64,11 @@ def unlock():
     GPIO.output(ledPin, GPIO.LOW)
 
 def lockAfterUnlock():
-    setup()
+    import RPi.GPIO as GPIO
+    GPIO.setmode(GPIO.Board)
+    GIOP.setwarnings(False)
+    ledPin = 11
+    GPIO.setup(ledPin, GPIO.OUT)
     
     print("Unlocking Gate.")
     GPIO.output(ledPin, GPIO.LOW)

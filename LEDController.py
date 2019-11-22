@@ -11,7 +11,14 @@ def setup():
     GPIO.setup(ledPin, GPIO.OUT)
 
 def turnOn():
-    setup()
+    import RPi.GPIO as GPIO
+    import datetime
+    from datetime import datetime
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setwarnings(False)
+    ledPin = 31
+    GPIO.setup(ledPin, GPIO.OUT)
+    
     print("Turning on light.")
     d = datetime.today()
     t = d.timetuple()
@@ -30,7 +37,14 @@ def turnOn():
     GPIO.output(ledPin, GPIO.HIGH)
 
 def turnOff():
-    setup()
+    import RPi.GPIO as GPIO
+    import datetime
+    from datetime import datetime
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setwarnings(False)
+    ledPin = 31
+    GPIO.setup(ledPin, GPIO.OUT)
+    
     print("Turning off light.")
     d = datetime.today()
     t = d.timetuple()
