@@ -4,8 +4,8 @@ def setup():
     import datetime
     from datetime import datetime
 
-    GPIO.setmode(GPIO.Board)
-    GIOP.setwarnings(False)
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setwarnings(False)
 
     ledPin = 11
 
