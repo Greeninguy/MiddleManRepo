@@ -5,7 +5,7 @@ import time
 height = 0
 
 #GPIO Mode (BOARD / BCM)
-GPIO.setmode(GPIO.Board)
+GPIO.setmode(GPIO.BOARD)
  
 #set GPIO Pins
 GPIO_TRIGGER = 12
