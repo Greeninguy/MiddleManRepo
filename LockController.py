@@ -1,8 +1,6 @@
 def setup():
     import RPi.GPIO as GPIO
-    import time
-    import datetime
-    from datetime import datetime
+    
 
     GPIO.setmode(GPIO.Board)
     GIOP.setwarnings(False)
@@ -13,6 +11,9 @@ def setup():
 
 def lock():
     setup()
+    import time
+    import datetime
+    from datetime import datetime
     print("Locking Gate.")
     d = datetime.today()
     t = d.timetuple()
@@ -32,6 +33,9 @@ def lock():
 
 def unlock():
     setup()
+    import time
+    import datetime
+    from datetime import datetime
     print("Unlocking Gate.")
     d = datetime.today()
     t = d.timetuple()
@@ -44,13 +48,14 @@ def unlock():
     f.write('\n')
     f.close()
     f = open("unlockminute.txt", 'a')
-    f.wright(str(t[4]))
+    f.write(str(t[4]))
     f.write('\n')
     f.close()
     GPIO.output(ledPin, GPIO.LOW)
 
 def lockAfterUnlock():
     setup()
+    
     print("Unlocking Gate.")
     GPIO.output(ledPin, GPIO.LOW)
     time.sleep(5)
