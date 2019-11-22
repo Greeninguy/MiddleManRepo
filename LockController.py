@@ -1,3 +1,13 @@
+import RPi.GPIO as GPIO
+import time
+import datetime
+from datetime import datetime
+
+ledPin = 11
+GPIO.setmode(GPIO.BOARD)
+
+GPIO.setup(ledPin, GPIO.OUT)
+
 def setup():
     import RPi.GPIO as GPIO
     import time
@@ -8,7 +18,6 @@ def setup():
     GPIO.setwarnings(False)
 
     ledPin = 11
-
     GPIO.setup(ledPin, GPIO.OUT)
 
 def lock():
@@ -44,7 +53,7 @@ def unlock():
     f.write('\n')
     f.close()
     f = open("unlockminute.txt", 'a')
-    f.wright(str(t[4]))
+    f.write(str(t[4]))
     f.write('\n')
     f.close()
     GPIO.output(ledPin, GPIO.LOW)

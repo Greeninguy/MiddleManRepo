@@ -1,17 +1,17 @@
-def setup():   
-    import RPi.GPIO as GPIO
-    import datetime
-    from datetime import datetime
+#def setup():   
+import RPi.GPIO as GPIO
+import datetime
+from datetime import datetime
 
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
 
-    ledPin = 31
+ledPin = 31
 
-    GPIO.setup(ledPin, GPIO.OUT)
+GPIO.setup(ledPin, GPIO.OUT)
 
 def turnOn():
-    setup()
+#    setup()
     print("Turning on light.")
     d = datetime.today()
     t = d.timetuple()
@@ -24,13 +24,13 @@ def turnOn():
     f.write('\n')
     f.close()
     f = open("ledonminute.txt", 'a')
-    f.wright(str(t[4]))
+    f.write(str(t[4]))
     f.write('\n')
     f.close()
     GPIO.output(ledPin, GPIO.HIGH)
 
 def turnOff():
-    setup()
+#    setup()
     print("Turning off light.")
     d = datetime.today()
     t = d.timetuple()
@@ -43,7 +43,7 @@ def turnOff():
     f.write('\n')
     f.close()
     f = open("ledoffminute.txt", 'a')
-    f.wright(str(t[4]))
+    f.write(str(t[4]))
     f.write('\n')
     f.close()
     GPIO.output(ledPin, GPIO.LOW)
