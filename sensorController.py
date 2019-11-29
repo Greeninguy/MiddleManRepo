@@ -76,6 +76,7 @@ def distanceTest():
     return 35
     
 def sensorMenu():
+    global height
     while True:
         print("Which Operation? \n"
               "Set Height (Manual Input): I \n"
