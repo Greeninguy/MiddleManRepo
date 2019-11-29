@@ -10,14 +10,16 @@ GPIO.setmode(GPIO.BOARD)
 #set GPIO Pins
 GPIO_TRIGGER = 12
 GPIO_ECHO = 18
+GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+GPIO.setup(GPIO_ECHO, GPIO.IN)
 
-def sensorSetup():
+#def sensorSetup():
     #set GPIO direction (IN / OUT)
-    GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
-    GPIO.setup(GPIO_ECHO, GPIO.IN)
+#    GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+#    GPIO.setup(GPIO_ECHO, GPIO.IN)
  
 def distance():
-    sensorSetup()
+#    sensorSetup()
     
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
@@ -48,14 +50,14 @@ def distance():
 #Manually set trigger distance for sensor
 def setTrigger():
 	print ("Enter Distance (cm) \n")
-	trigger = input()
+	trigger =input()
 	proper = trigger.isdigit()
-	while proper == false:
+	while proper == False:
 		print ("Please Enter a Number \n")
 		trigger = input()
 		proper = trigger.isdigit()
 		print ("Height Threshold is now " + trigger)
-	return trigger
+	return int(trigger)
     
 #Use the sensor to set trigger distance
 def setTrigger2():
@@ -67,7 +69,7 @@ def setTrigger2():
 		i = i - 1
 		time.sleep(1)
 	trigger = dist / 4
-	print ("Height Threshold is now " + trigger)
+	print ("Height Threshold is now " +str(trigger))
 	return trigger
     
 def distanceTest():
