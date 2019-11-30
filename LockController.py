@@ -37,7 +37,7 @@ def lock():
     GPIO.output(ledPin, GPIO.HIGH)
 
 def unlock():
-import RPi.GPIO as GPIO
+    import RPi.GPIO as GPIO
     GPIO.setmode(GPIO.Board)
     GIOP.setwarnings(False)
     ledPin = 11
