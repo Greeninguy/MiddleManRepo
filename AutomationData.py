@@ -76,13 +76,13 @@ def calcAvg(day, hour, minute):
             avg = avg + j
             x = x + 1
         avg = avg / x
-        averages.append(avg)
-        print("Averages are " + averages)
+    averages.append(int(avg))
+    print("Averages are " + averages)
     return averages
 
 def readFile(file):
     f = open(file, 'r')
-    lis = f.read().splitilnes()
+    lis = f.read().splitlines()
     f.close()
     lis = list(map(int, lis))
     return lis

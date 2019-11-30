@@ -3,23 +3,22 @@ import LockController
 import os
 import datetime
 from datetime import datetime
-
-automate()
+import time
 
 def automate():
     try:
         while True:
-            time = timeCheck()
-            match = readAuto("LEDOnAuto.txt", time)
+            theTime = timeCheck()
+            match = readAuto("LEDOnAuto.txt", theTime)
             if match:
                 LEDController.turnOn()
-            match = readAuto("LEDOffAuto.txt", time)
+            match = readAuto("LEDOffAuto.txt", theTime)
             if match:
                 LEDController.turnOff()
-            match = readAuto("LockAuto.txt", time)
+            match = readAuto("LockAuto.txt", theTime)
             if match:
                 LockController.lock()
-            match = readAuto("UnlockAuto.txt", time)
+            match = readAuto("UnlockAuto.txt", theTime)
             if match:
                 LockController.unlock()
             time.sleep(60)
@@ -33,10 +32,10 @@ def readAuto(file, time):
     lis = f.read().splitlines()
     f.close()
     lis = list(map(int,lis))
-    if file[0] == time[0] and file[1] == time[1] and file[2] == time[2]:
-        return true
+    if lis[0] == time[0] and lis[1] == time[1] and lis[2] == time[2]:
+        return True
     else:
-        return false
+        return False
 
 def timeCheck():
     d = datetime.today()
@@ -46,3 +45,5 @@ def timeCheck():
     time.append(t[3])
     time.append(t[4])
     return time
+
+automate()
